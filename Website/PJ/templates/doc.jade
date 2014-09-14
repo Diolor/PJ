@@ -1,0 +1,188 @@
+extends layout
+
+block content
+    .row#scrollspy
+        .col-md-10
+            h1#intro.page-header Intro
+            p There are 3 rules when writing PJ:
+            ul
+                li Drop trailing semis
+                li Use whitespace to declare block objects instead of braces
+                li Drop most of the parentheses and brackets
+
+
+            h1#imports.page-header  Imports
+            p Importing or declaring packages are straightforward:
+
+            .row
+                .col-md-6
+                    h5 PJ:
+                    pre.
+                        package com.lorentzos.pj
+
+                        import java.util.*
+                .col-md-6
+                    h5 Java:
+                    pre.
+                        package com.lorentzos.pj;
+
+                        import java.util.*;
+
+
+            h1#classes.page-header Classes
+            p Classes are python-like of course. A  class can be declared:
+            .row
+                .col-md-6
+                    h5 PJ:
+                    pre.
+                        public static class MyClass
+
+                .col-md-6
+                    h5 Java:
+                    pre.
+                        public static class MyClass{
+
+                        }
+
+            h1#methods.page-header Methods
+            p Methods are declared in the same way:
+            .row
+                .col-md-6
+                    h5 PJ:
+                    pre.
+                        public final void main(String[] args)
+
+
+                .col-md-6
+                    h5 Java:
+                    pre.
+                        public final void main(String[] args){
+
+                        }
+            hr
+            .row
+                .col-md-6
+                    h5 PJ:
+                    pre.
+                        public String justReturn(String arg)
+                            return arg
+                .col-md-6
+                    h5 Java:
+                    pre.
+                        public String justReturn(String arg){
+                            return arg;
+                        }
+
+
+
+
+
+
+            h1#expressions.page-header Expressions
+            p Expressions do not need parentheses
+            .row
+                .col-md-6
+                    h5 PJ:
+                    pre.
+                        if value1 == value2
+                            System.out.println("true")
+
+
+                .col-md-6
+                    h5 Java:
+                    pre.
+                        if (value1 == value2)
+                            System.out.println("true");
+            hr
+            .row
+                .col-md-6
+                    h5 PJ:
+                    pre.
+                        for int i=1; i<11; i++
+                            System.out.println("Count is: " + i)
+                .col-md-6
+                    h5 Java:
+                    pre.
+                        for(int i=1; i<11; i++){
+                            System.out.println("Count is: " + i);
+                        }
+
+            hr
+            .row
+                .col-md-6
+                    h5 PJ:
+                    pre.
+                        try
+                            // Do something
+                        catch IndexOutOfBoundsException e
+                            System.err.println( e.getMessage() )
+
+                .col-md-6
+                    h5 Java:
+                    pre.
+                        try {
+                            // Do something
+                        } catch (IndexOutOfBoundsException e) {
+                            System.err.println( e.getMessage() );
+                        }
+
+
+
+
+
+            h1#statements.page-header Statements
+            p Statements do not need trailing semi colons
+            .row
+                .col-md-6
+                    h5 PJ:
+                    pre.
+                        // declaration statement
+                        double aValue = 8933.234
+
+                        // assignment statement
+                        aValue = 8933.234
+
+                        // increment statement
+                        aValue++
+
+                        // method invocation statement
+                        System.out.println("Hello World!")
+
+                        // object creation statement
+                        Bicycle myBike = new Bicycle()
+
+                .col-md-6
+                    h5 Java:
+                    pre.
+                        // declaration statement
+                        double aValue = 8933.234;
+
+                        // assignment statement
+                        aValue = 8933.234;
+
+                        // increment statement
+                        aValue++;
+
+                        // method invocation statement
+                        System.out.println("Hello World!");
+
+                        // object creation statement
+                        Bicycle myBike = new Bicycle();
+
+
+
+
+        nav.col-md-2
+            ul.nav.nav-pills.nav-stacked.visible-md.visible-lg(data-spy="affix" , data-offset-top="314")
+                li.active
+                    a(href="#intro") Intro
+                li
+                    a(href="#imports") Imports
+                li
+                    a(href="#classes") Classes
+                li
+                    a(href="#methods") Methods
+                li
+                    a(href="#expressions") Expressions
+                li
+                    a(href="#statements") Statements

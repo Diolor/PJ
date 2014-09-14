@@ -1,0 +1,22 @@
+package com.lorentzos
+
+
+public class TestClass
+
+    final private MyString s = new MyString("Hello World")
+
+    private class MyString:
+        private String str
+
+        public MyString(String str):
+            this.str = str
+
+        public void echo():
+            System.out.println(str)
+
+
+    public void main():
+        s.echo()
+
+
+

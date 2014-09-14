@@ -1,0 +1,39 @@
+extends layout
+
+
+block content
+    .row
+        .col-md-6
+            h4 PJ:
+            pre.
+                package com.lorentzos.pj.test
+
+                import java.util
+
+                public class HelloWorld
+
+                    public static void main(String[] args)
+                        printHello()
+
+                    private static void printHello()
+                        System.out.println("Hello, World")
+
+        .col-md-6
+            h4 Java:
+            pre.
+
+                package com.lorentzos.pj.test;
+
+                import java.util;
+
+                public class HelloWorld{
+
+                    public static void main(String[]args){
+                        printHello();
+                    }
+
+                    private static void printHello(){
+                        System.out.println("Hello, World");
+                    }
+
+                }

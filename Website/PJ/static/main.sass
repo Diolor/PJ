@@ -1,0 +1,59 @@
+// Overides the default bootstrap blue color
+
+$pj: #00acc1
+$brand-danger: #ff5722
+$brand-primary: $brand-danger
+$border-radius-base: 0
+
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap"
+
+
+
+@media (min-width: 1500px)
+	.container
+		width: 1450px //+ $grid-gutter-width
+
+
+@media (max-width: $screen-xs-max)
+	.navbar .container
+		width: auto
+
+	.navbar.navbar-default .navbar-header
+		background: $pj
+
+		.navbar-brand
+			color: white
+
+		.icon-bar
+			background-color: white
+
+		.navbar-toggle:hover, .navbar-toggle:focus
+			background: inherit
+
+
+	.logo-container
+		display: none
+
+
+@import "footer"
+
+
+.logo-container
+	text-align: center
+	background-color: $pj
+	padding-top: 50px
+	padding-bottom: 50px
+	h1
+		font-size: 80px
+		font-weight: 400
+	a
+		text-decoration: none
+		color: #ffffff
+
+
+p
+	font-size: 1.2em
+
+ul
+	&.affix
+		top: 30px

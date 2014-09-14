@@ -1,0 +1,80 @@
+package com.solab.alarms
+
+import java.io.IOException
+import java.net.InetSocketAddress
+import java.util.List
+import javax.annotation.PostConstruct
+import javax.annotation.PreDestroy
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
+import net.spy.memcached.MemcachedClient
+import net.spy.memcached.OperationTimeoutException
+
+public class AlarmMemcachedClient implements AlarmCache
+
+	private final Logger log = LoggerFactory.getLogger(getClass())
+	private MemcachedClient mc
+	private InetSocketAddress[] servers
+	private int defint = 120
+
+	public void setDefaultInterval(int value)
+		defint = value
+
+	public int getDefaultInterval()
+		return defint
+
+	public void setServers(List<String> value)
+		servers = new InetSocketAddress[value.size()]
+		int pos = 0
+
+		for String s : value
+			int cp = value.indexOf(':')
+			if cp > 0
+				servers[pos++] = new InetSocketAddress(s.substring(0, cp), Integer.parseInt(s.substring(cp + 1)))
+			else
+				servers[pos++] = new InetSocketAddress(s, 11211)
+
+
+	@PostConstruct
+	public void init() throws IOException
+		mc = new MemcachedClient(servers)
+
+
+	@PreDestroy
+	public void disconnect()
+		mc.shutdown()
+
+
+	@Override
+	public void store(AlarmChannel channel, String source, String message)
+		if mc == null
+			synchronized this
+				if mc == null
+					try
+						init()
+					catch IOException ex
+						log.error("Initializing alarm memcached client", ex)
+					return
+
+	@Override
+	public boolean shouldResend(AlarmChannel channel, String source, String message)
+		if mc == null
+			return true
+		try
+			return mc.get(k) == null
+		catch OperationTimeoutException ex
+			log.error("Timeout waiting to retrieve  from memcached", k, ex)
+		catch RuntimeException ex
+			log.error("Retrieving key  from memcached", k, ex.getCause() == null ? ex : ex.getCause())
+		return true
+
+
+	@Override
+	public String toString()
+		return String.format("Memcached(%s)", mc == null ? "disconnected" : mc.getAvailableServers())
+
+
+	@Override
+	public void shutdown()
+		if mc != null
+			mc.shutdown()

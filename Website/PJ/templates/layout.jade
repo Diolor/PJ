@@ -1,0 +1,57 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title PJ - Java Template language
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+        {% assets "main_sass" %}
+        link(rel="stylesheet", type="text/css", href="{{ ASSET_URL }}")
+        {% endassets %}
+
+        script(src="http://code.jquery.com/jquery-2.1.1.min.js")
+        script(src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js")
+
+    body(data-spy="scroll", data-target="#scrollspy")
+        #wrap
+            #content
+                .logo-container
+                    a(href="/")
+                        h1 PJ
+                        p.lead Pythonic Java
+                        .sr-only PJ - Java Template language
+                .navbar.navbar-default.navbar-static-top
+                    .container
+                        .navbar-header.visible-xs
+                            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                                span.sr-only Toggle navigation
+                                span.icon-bar
+                                span.icon-bar
+                                span.icon-bar
+                            a.navbar-brand(href="/") PJ
+                        .collapse.navbar-collapse
+                            ul.nav.navbar-nav
+                                block navsections
+                                    li(class=section === 'reference' ? 'active' : false)
+                                        a(href='/docs') Syntax Reference
+                                    li(class=section === 'api' ? 'active' : false)
+                                        a(href='/api') API
+                                    //-li(class=section === 'command-line' ? 'active' : false)
+                                        a(href='/command-line') Command Line
+                            ul.nav.navbar-nav.navbar-right
+                                //-li(class=section === 'history' ? 'active' : false)
+                                    a(href='/history') Change Log
+                                //-li: a(href='/coverage/') Code Coverage
+                                //-li: a(href='https://travis-ci.org/visionmedia/jade') Test Results
+                                li: a(href='https://github.com/diolor/pj',target="_blank") GitHub Repository
+                            block navigation
+                .container
+                    block content
+            #push
+        #footer-wrapper
+            footer
+                .container
+                    p
+                        | PJ is a template language created by&nbsp;
+                        a(href='http://www.twitter.com/diolor',target="_blank") @diolor
+                        |.
