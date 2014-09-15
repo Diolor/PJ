@@ -2,7 +2,6 @@ apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven'
 apply plugin: 'signing'
-apply plugin:'application'
 
 
 
@@ -38,6 +37,9 @@ jar {
 
 
 task assembleCompiler(type: Jar){
+    dependsOn compileJava, processResources, classes
+
+    archiveName = 'PJ-latest.jar'
     destinationDir = project.getRootDir()
 
     from { configurations.runtime.collect { zipTree(it) } }
