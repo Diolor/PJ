@@ -37,6 +37,20 @@ jar {
 
 
 
+task assembleCompiler(type: Jar){
+    destinationDir = project.getRootDir()
+
+    from { configurations.runtime.collect { zipTree(it) } }
+
+    manifest.attributes( 'Implementation-Title': archivesBaseName,
+            'Implementation-Version': version,
+            'Main-Class': mainClassName,
+            'Built-By': POM_DEVELOPER_NAME
+    )
+}
+
+
+
 
 task javadocJar(type: Jar) {
     classifier = 'javadoc'
