@@ -1,7 +1,7 @@
 PJ
 ==
 
-Full documentation is at [pj.lorentzos.com](http://pj.lorentzos.com)
+Full documentation is at *soon* <s> [pj.lorentzos.com](http://pj.lorentzos.com)<s>.
 
 PJ (stands for Pythonic Java) is a template language for Java that resembles Python's indent grammar and compiles into native Java. Inspired by Python and [Jade](http://jade-lang.com).
 
@@ -66,13 +66,18 @@ Use
 
 To create a Java file from PJ simply:
 
-`java -jar PJ-0.1.0.jar <file> [-options]`
+```sh
+$ java -jar PJ-0.1.0.jar <file> [-options]
+```
 
 Options include:
+
   -c | -compile
       To generate .java files and compile them.
+      
   -cd
       To compile but not generate .java files.
+      
   -o: outputpath
       To specify the output path.
 
