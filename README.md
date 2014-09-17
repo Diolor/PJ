@@ -1,7 +1,7 @@
 PJ
 ==
 
-Full documentation is at *soon* <s> [pj.lorentzos.com](http://pj.lorentzos.com)<s>.
+Full documentation is at  [pj.lorentzos.com](http://pj.lorentzos.com).
 
 PJ (stands for Pythonic Java) is a template language for Java that resembles Python's indent grammar and compiles into native Java. Inspired by Python and [Jade](http://jade-lang.com).
 
